@@ -2,13 +2,14 @@
 // otherwise we would not be able to call it multiple times
 var Nightmare = require('nightmare');
 var nightmare;
-var args = { show: true, alwaysOnTop: true };
+var args = { show: true, alwaysOnTop: true, electronPath: require('./node_modules/electron') };
 
 
 document.getElementById("start").addEventListener("click", function(){
   document.getElementById("status").innerHTML = "Searching for the gem";
 
   // Here we start the Nightmare Instance
+  console.log('test')
   nightmare = Nightmare(args);
   nightmare
     .goto('http://yahoo.com')

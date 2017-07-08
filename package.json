@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.6.11",
     "nightmare": "^2.10.0"
   }
 }
