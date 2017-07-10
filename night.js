@@ -2,7 +2,7 @@
 // otherwise we would not be able to call it multiple times
 var Nightmare = require('nightmare');
 var nightmare;
-var args = { show: true, alwaysOnTop: true, electronPath: require('./node_modules/electron') };
+var args = { show: true, alwaysOnTop: true, electronPath: require('./node_modules/electron-nightmare') };
 
 
 document.getElementById("start").addEventListener("click", function(){

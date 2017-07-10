@@ -4,11 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=nightmare* electron index.js"
+    "start": "DEBUG=nightmare* electron index.js",
+    "pack": "asar pack dist/mac/test-electron-nightmare.app/Contents/Resources/app dist/mac/test-electron-nightmare.app/Contents/Resources/app.asar",
+    "extract": "asar extract dist/mac/test-electron-nightmare.app/Contents/Resources/app.asar dist/mac/test-electron-nightmare.app/Contents/Resources/app",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.electron.test",
+    "mac": {
+      "category": "my.app.category.type"
+    },
+    "extraResources": [
+      {
+        "from": "node_modules/electron-nightmare",
+        "to": "appShadow/node_modules/electron-nightmare",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron-nightmare": "git+https://github.com/KamesCG/electron-nightmare.git",
     "nightmare": "^2.10.0"
+  },
+  "devDependencies": {
+    "asar": "^0.13.0",
+    "electron": "^1.6.11",
+    "electron-builder": "^19.13.0"
   }
 }
